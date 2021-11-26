@@ -5,8 +5,21 @@ const apiUrlFirstGeneration =
 
 async function getPokemons() {
   let response = await fetch(apiUrlFirstGeneration);
+  // data object with some information and the results
   let data = await response.json();
-  console.log(data);
+  let pokemonInfo = data.results;
+  console.log(pokemonInfo);
+  pokemonInfo.map((pokemon) => writeLi(pokemon.name));
+}
+
+//Get the <ol>
+const getList = document.querySelector('#pokemon-list');
+
+//Create a new Li and change the inner text to the pokemon name
+function writeLi(pokemon) {
+  const createLi = document.createElement('li');
+  createLi.innerText = pokemon;
+  return getList.append(createLi);
 }
 
 getPokemons();
