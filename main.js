@@ -17,9 +17,14 @@ const getList = document.querySelector('#pokemon-list');
 
 //Create a new Li and change the inner text to the pokemon name
 function writeLi(pokemon) {
-  const createLi = document.createElement('li');
-  createLi.innerText = pokemon;
-  return getList.append(createLi);
+  const createDiv = document.createElement('div');
+  const createH2 = document.createElement('h2');
+const appendedDiv = getList.append(createDiv);
+console.log(appendedDiv);
+ appendedDiv.append(createH2);
+return createH2.innerText = pokemon;
 }
 
+
 getPokemons();
+
