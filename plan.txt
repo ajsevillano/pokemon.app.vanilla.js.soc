@@ -1,0 +1,5 @@
+Task 1
+- Fech the information from the api
+   - First, we can get the 100 first pokemon to check
+   - Map throught the returned information.
+- Check the api is returning the right information.
