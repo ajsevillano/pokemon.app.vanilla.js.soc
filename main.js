@@ -1,6 +1,4 @@
-//Fetch the information
-//First generation
-
+//Variables for every generation
 const firstGenData = { limit: 151, offset: 0 };
 const secondGenData = { limit: 100, offset: 152 };
 const thirdGenData = { limit: 135, offset: 251 };
@@ -15,11 +13,11 @@ async function startApp(apiInfo) {
 
 //Get the <ol>
 const container = document.querySelector('#pokemon-list');
-
+//Get the buttons
 const gen1Button = document.querySelector('.gen1-button');
 const gen2Button = document.querySelector('.gen2-button');
 const gen3Button = document.querySelector('.gen3-button');
-
+//Add events listener for every button
 gen1Button.addEventListener('click', () => startApp(firstGenData));
 gen2Button.addEventListener('click', () => startApp(secondGenData));
 gen3Button.addEventListener('click', () => startApp(thirdGenData));
@@ -32,8 +30,10 @@ async function createCard(pokemon, pokemonDetailsUrl) {
   const card = document.createElement('div');
   const createH2 = document.createElement('h2');
   const p = document.createElement('p');
-  const typeP = document.createElement('p');
+  const type1p = document.createElement('p');
+  const type2p = document.createElement('p');
   const img = document.createElement('img');
+  const typesContainer = document.createElement('div');
 
   //Get pokemon individual info
   let data = await getPokemonInfo(pokemonDetailsUrl);
@@ -42,13 +42,17 @@ async function createCard(pokemon, pokemonDetailsUrl) {
 
   const [type1, type2] = types;
 
-  const checkType2 = type2 ? `- ${type2}` : '';
+  const checkType2 = type2 ? type2 : '';
 
   //Attach the info
   card.className = 'card';
+  type1p.className = type1;
+  type2p.className = checkType2;
+  typesContainer.className = 'types-container';
   createH2.innerText = pokemon;
   p.innerText = `pokedeck id #${data.id}`;
-  typeP.innerText = `${type1} ${checkType2}`;
+  type1p.innerText = type1;
+  type2p.innerText = checkType2;
   img.src = imgUrl;
   img.width = 200;
 
@@ -56,8 +60,10 @@ async function createCard(pokemon, pokemonDetailsUrl) {
   container.appendChild(card);
   card.appendChild(img);
   card.appendChild(createH2);
+  card.appendChild(typesContainer);
+  typesContainer.appendChild(type1p);
+  typesContainer.appendChild(type2p);
   card.appendChild(p);
-  card.appendChild(typeP);
 }
 
 //Run the app
