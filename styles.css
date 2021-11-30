@@ -41,3 +41,95 @@ h1 {
 .types-container p {
   margin: 0 0.6rem;
 }
+
+/* Pokemon types */
+.bug {
+  background-color: #2ecc71;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.poison {
+  background-color: #8e44ad;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.grass {
+  background-color: #00b894;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.electric {
+  background-color: #f1c40f;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.fire {
+  background-color: #c0392b;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.ground {
+  background-color: #bd850d;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.flying {
+  background-color: #4b7bec;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.water {
+  background-color: #45aaf2;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.ice {
+  background-color: #89ceff;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.normal {
+  background-color: #a5b1c2;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.fairy {
+  background-color: #f78fb3;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.fighting {
+  background-color: #6d214f;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.psychic {
+  background-color: #cf4273;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
