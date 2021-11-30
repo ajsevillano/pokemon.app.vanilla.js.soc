@@ -3,8 +3,11 @@
 const apiUrlFirstGeneration =
   'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
 
-async function startApp() {
-  data = await getPokemons();
+const apiUrlsecondGen =
+  'https://pokeapi.co/api/v2/pokemon?limit=251&offset=152';
+
+async function startApp(apiUrl) {
+  data = await getPokemons(apiUrl);
   await Promise.all(
     data.map(async (pokemon) => {
       await createCard(pokemon.name, pokemon.url);
@@ -21,8 +24,14 @@ async function startApp() {
 //Get the <ol>
 const container = document.querySelector('#pokemon-list');
 
+const gen2Button = document.querySelector('.gen2-button');
+
+gen2Button.addEventListener('click', () => startApp(apiUrlsecondGen));
+
 //Create a new Li and change the inner text to the pokemon name
 async function createCard(pokemon, pokemonDetailsUrl) {
+  //Delete the previous list of pokemons
+  container.innerHTML = '';
   //Create the elements
   const card = document.createElement('div');
   const createH2 = document.createElement('h2');
@@ -56,10 +65,10 @@ async function createCard(pokemon, pokemonDetailsUrl) {
 }
 
 //Run the app
-startApp();
+startApp(apiUrlFirstGeneration);
 
-async function getPokemons() {
-  let response = await fetch(apiUrlFirstGeneration);
+async function getPokemons(apiUrl) {
+  let response = await fetch(apiUrl);
   let data = await response.json();
   return data.results;
 }
