@@ -8,7 +8,11 @@ async function startApp(apiInfo) {
   let apiUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
   //Get the data from the api
   data = await getPokemons(apiUrl);
-  data.map(async (pokemon) => await createCard(pokemon.name, pokemon.url));
+  //Delete the previous list of pokemons
+  container.innerHTML = '';
+  for (const pokemon of data) {
+    await createCard(pokemon.name, pokemon.url);
+  }
 }
 
 //Get the <ol>
@@ -24,10 +28,8 @@ gen3Button.addEventListener('click', () => startApp(thirdGenData));
 
 //Create a new Li and change the inner text to the pokemon name
 async function createCard(pokemon, pokemonDetailsUrl) {
-  //Delete the previous list of pokemons
-  container.innerHTML = '';
   //Create the elements
-  const card = document.createElement('div');
+  const pokemonCard = document.createElement('div');
   const createH2 = document.createElement('h2');
   const p = document.createElement('p');
   const type1p = document.createElement('p');
@@ -45,7 +47,7 @@ async function createCard(pokemon, pokemonDetailsUrl) {
   const checkType2 = type2 ? type2 : '';
 
   //Attach the info
-  card.className = 'card';
+  pokemonCard.className = 'card';
   type1p.className = type1;
   type2p.className = checkType2;
   typesContainer.className = 'types-container';
@@ -57,13 +59,13 @@ async function createCard(pokemon, pokemonDetailsUrl) {
   img.width = 200;
 
   //Append the elements
-  container.appendChild(card);
-  card.appendChild(img);
-  card.appendChild(createH2);
-  card.appendChild(typesContainer);
+  container.appendChild(pokemonCard);
+  pokemonCard.appendChild(img);
+  pokemonCard.appendChild(createH2);
+  pokemonCard.appendChild(typesContainer);
   typesContainer.appendChild(type1p);
   typesContainer.appendChild(type2p);
-  card.appendChild(p);
+  pokemonCard.appendChild(p);
 }
 
 //Run the app
