@@ -1,6 +1,6 @@
 //Variables for every generation
 const firstGenData = { limit: 151, offset: 0 };
-const secondGenData = { limit: 100, offset: 152 };
+const secondGenData = { limit: 100, offset: 151 };
 const thirdGenData = { limit: 135, offset: 251 };
 
 async function startApp(apiInfo) {
